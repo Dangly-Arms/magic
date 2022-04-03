@@ -1,0 +1,99 @@
+/*My first code in Java. Completed 4/2/2022 - By Dangly-Arms
+This code asks is like a magic 8-ball, it allows you to enter a yes or no question then returns
+a random pre-determined response.
+*/
+import java.util.Scanner;// ALLOWS FOR USER INPUT
+import java.util.*;
+import java.lang.Math;
+import java.util.Random;// imports random number generator
+
+public class Guidance
+{
+    public static void main(String[] args) {
+        int x = 1;
+        System.out.println("To exit the program type exit");
+        int answer = 0;
+
+        while (x == 1) {
+            Scanner in = new Scanner(System.in);//TOOL THAT INITIALIZES THE SCANNER UTILITY -- NEED TO MEMORIZE
+            System.out.println("Ask a YES or No question, Trust in the Master Plan .");//PRINTS
+            String Question = in.next();// ALLOWS YOU TO ASK QUESTION
+            String exit = "exit";
+            String[] Response = new String[17];// creates an array of strings called Response
+            Response[0] = "Commit 100% of your energy to make this a reality!!!";
+            Response[1] = " This is a terrible idea, reconsider";
+            Response[2] = "What would Jesus do????!";
+            Response[3] = "Go for it!";
+            Response[4] = " Bad idea!";
+            Response[5] = "Go for a lap";
+            Response[6] = "Would Monk Monk approve of this decision?";
+            Response[7] = "Thats a good question, deliberate and ask again";
+            Response[8] = "Bingo!!!";
+            Response[9] = "If you plant the seed it will grow";
+            Response[10] = "Think for yourself.";
+            Response[11] = "Send it!!!!";
+            Response[12] = "THe algorithm decided that you should not commit to this idea ";
+            Response[13] = "Nope";
+            Response[14] = "Absolutley Not";
+            Response[15] = " Not a chance";
+            Response [16] = "Believe in yourself";
+
+            //creates variable random of Random class.
+            Random random = new Random(); // allows for exit inside while loop
+            if (Question.equals(exit))
+
+            {
+                System.out.println("Be well");
+                x = 0;
+                if (x == 0)
+                {
+                System.exit(0);
+                }
+            }
+
+            //Generates a random number between min and the length of the array... im too dumb to understand how... whatever... it works...
+            answer = random.nextInt(Response.length);
+            System.out.println(Response[answer]);
+
+            //sets specific answers to different output
+            if (answer == 6) {
+                System.out.println("Ask your question in a different way.");
+                answer = random.nextInt(Response.length);//sets answer to a new value. could still be 6 which is lame, should exlcude those somehow...
+                Question = in.next();
+                Response[6] = Response[random.nextInt(0, 15)];
+                System.out.println(Response[answer]);
+
+                //exitloop
+                if (Question.equals(exit)){
+                    x = 0;
+                    if (x == 0)
+                    {
+                        System.exit(0);
+                    }
+                }
+
+
+            }
+            if (answer == 7) {
+                System.out.println("Ask your question in a different way.");
+                answer = random.nextInt(Response.length);
+                Question = in.next();
+                Response[7] = Response[random.nextInt(0, 15)];
+                System.out.println(Response[answer]);
+
+                //exit loop
+                if (Question.equals(exit)){
+                    x = 0;
+                    if (x == 0)
+                    {
+                        System.exit(0);
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+
